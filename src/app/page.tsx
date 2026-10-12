@@ -1,69 +1,33 @@
 import Image from "next/image";
-
+import { ArrowUpRight, Code2, BriefcaseBusiness, Sparkles, ChevronDown, ArrowRight, Terminal, Layers3, ArrowUp } from "lucide-react";
+import { Github } from "@/components/brand-icons";
+import { Suspense } from "react";
+import { profile, projects, experience } from "@/lib/content";
+import { Button } from "@/components/ui/button";
+import { Hero } from "@/components/hero";
+import { Card } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { Badge } from "@/components/ui/badge";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { Reveal } from "@/components/reveal";
+import { GitHubActivity, ActivitySkeleton } from "@/components/github-activity";
+const jsonLd = { "@context": "https://schema.org", "@type": "Person", name: profile.name, url: `${profile.url}/`, image: `${profile.url}${profile.avatar}`, jobTitle: profile.role, description: profile.introduction, sameAs: [profile.github, ...(profile.linkedin ? [profile.linkedin] : [])], knowsAbout: ["MongoDB", "Express.js", "React", "Node.js", "TypeScript", "Artificial Intelligence"] };
 export default function Home() {
-  return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+  return <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}/>
+    <a className="skip-link" href="#main">Skip to content</a>
+    <div className="mx-auto w-full max-w-3xl px-5 sm:px-8">
+      <header className="pt-6 sm:pt-8"><nav aria-label="Main navigation" className="flex h-12 items-center justify-between rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 sm:px-5"><a href="#" aria-label="Faiz Ahmad home" className="flex items-center gap-2.5 text-sm font-semibold tracking-tight"><Image src="/logo.png" alt="" width={32} height={32} className="nav-logo rounded-sm object-contain"/><span>Faiz Ahmad<span className="text-[var(--accent)]">.</span></span></a><div className="flex items-center gap-3 text-[11px] sm:gap-5 sm:text-xs"><a className="nav-link" href="#projects">Projects</a><a className="nav-link" href="#experience">Experience</a><Separator orientation="vertical" className="!h-4"/><ThemeToggle/></div></nav></header>
+      <main id="main">
+        <section aria-labelledby="hero-title" className="hero-section"><Reveal><Hero/></Reveal></section>
+        <section aria-labelledby="activity-title" className="section-space"><Reveal><div className="section-heading"><div className="flex items-center gap-2.5"><Github className="size-4 text-[var(--muted)]" aria-hidden="true"/><h2 id="activity-title">A little progress, every day.</h2></div><a href={profile.github} target="_blank" rel="noopener noreferrer" className="quiet-link">@{profile.username}<ArrowUpRight className="size-3.5"/></a></div><Suspense fallback={<ActivitySkeleton/>}><GitHubActivity/></Suspense></Reveal></section>
+        <section id="projects" aria-labelledby="projects-title" className="section-space scroll-mt-8"><Reveal><div className="mb-4 flex items-end justify-between"><div><p className="eyebrow mb-2">IDEAS INTO INTERFACES</p><h2 id="projects-title" className="section-title">Selected projects<span className="text-[var(--accent)]">.</span></h2></div><span className="hidden text-xs text-[var(--muted)] sm:block">Built with care, from the ground up.</span></div></Reveal>
+          <div className="space-y-3">{projects.map((project, index) => <Reveal key={project.id} delay={index * 0.06}><Card role="article" className="project-card group gap-0 py-0 shadow-none"><div className="project-preview relative min-h-40 overflow-hidden sm:min-h-full"><span className="absolute left-4 top-4 z-10 rounded-md border border-white/10 bg-black/30 px-2 py-1 font-mono text-[10px] text-white/60">{project.id} / PREVIEW</span><Image src={project.image} alt={project.imageAlt} width={600} height={480} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.025]" sizes="(max-width: 640px) 90vw, 300px"/><span className="absolute bottom-3 left-4 text-[9px] tracking-wider text-white/50">ILLUSTRATIVE PLACEHOLDER</span></div><div className="p-3.5 sm:p-4"><div className="mb-2 flex items-center justify-between gap-2"><p className="eyebrow">{project.category}</p><Badge variant="outline" className="placeholder-label">To be added</Badge></div><h3 className="text-base font-semibold tracking-[-0.025em]">{project.title}</h3><p className="mt-2 text-xs leading-6 text-[var(--muted)]">{project.description}</p><ul className="mt-3 space-y-1.5">{project.achievements.map(text => <li key={text} className="flex gap-2 text-xs leading-5 text-[var(--muted)]"><ArrowRight className="mt-1 size-3 shrink-0 text-[var(--accent)]" aria-hidden="true"/>{text}</li>)}</ul><div className="mt-2 flex flex-wrap gap-1.5">{project.stack.map(tech => <Badge key={tech} variant="outline" className="tech-tag">{tech}</Badge>)}</div><div className="mt-3 flex gap-2">{project.live ? <Button asChild size="sm" variant="outline"><a href={project.live} target="_blank" rel="noopener noreferrer" aria-label={`Live demo of ${project.title}`}>Live Demo<ArrowUpRight/></a></Button> : <Button size="sm" variant="outline" disabled title="Live demo URL to be added">Live Demo<ArrowUpRight/></Button>}{project.github ? <Button asChild size="sm" variant="ghost"><a href={project.github} target="_blank" rel="noopener noreferrer" aria-label={`Source code for ${project.title}`}><Github/>GitHub</a></Button> : <Button size="sm" variant="ghost" disabled title="Repository URL to be added"><Github/>GitHub</Button>}</div></div></Card></Reveal>)}</div>
+        </section>
+        <section id="experience" aria-labelledby="experience-title" className="section-space scroll-mt-8"><Reveal><div className="mb-4"><p className="eyebrow mb-2">THE JOURNEY SO FAR</p><h2 id="experience-title" className="section-title">Experience & impact<span className="text-[var(--accent)]">.</span></h2></div><Card className="gap-0 overflow-hidden py-0 shadow-none">{experience.map((item, index) => <details key={item.title} className="experience-row group"><summary className="flex cursor-pointer list-none items-center gap-3 p-3.5"><span className={`experience-icon ${index === 0 ? "accent-icon" : ""}`}>{item.icon === "work" ? <BriefcaseBusiness/> : item.icon === "code" ? <Code2/> : <Layers3/>}</span><span className="min-w-0 flex-1"><span className="block text-sm font-medium">{item.title}</span><span className="mt-1 block text-xs text-[var(--muted)]">{item.subtitle}</span></span><span className="hidden text-right text-[10px] text-[var(--muted)] sm:block">{item.date}<span className="mt-1 block font-mono text-[9px] uppercase tracking-wider">Placeholder</span></span><ChevronDown className="size-4 shrink-0 text-[var(--muted)] transition-transform group-open:rotate-180"/></summary><p className="pb-3 pl-[62px] pr-5 text-xs leading-6 text-[var(--muted)]">{item.description}</p></details>)}</Card><p className="mt-3 text-[10px] text-[var(--muted)]">Experience details are placeholders awaiting verified information.</p></Reveal></section>
+        <section id="contact" aria-labelledby="contact-title" className="section-space scroll-mt-8"><Reveal><Card className="contact-card px-5 py-5 shadow-none"><div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-center"><div><p className="eyebrow mb-3 flex items-center gap-2"><Sparkles className="size-3.5"/>GOOD THINGS START WITH A CONVERSATION</p><h2 id="contact-title" className="text-lg font-semibold tracking-tight">Have something in mind?</h2><p className="mt-2 max-w-md text-xs leading-6 text-[var(--muted)]">Let’s talk web development, AI, or your next idea.<br/>{profile.email ? "I’d love to hear from you." : "Direct email contact will be available once added."}</p></div><Button asChild><a href={profile.email ? `mailto:${profile.email}` : profile.github} target={profile.email ? undefined : "_blank"} rel={profile.email ? undefined : "noopener noreferrer"}>{profile.email ? "Say hello" : "Find me on GitHub"}<ArrowUpRight/></a></Button></div></Card></Reveal></section>
       </main>
+      <footer className="flex flex-col items-center justify-between gap-4 border-t border-[var(--border)] pb-5 pt-4 text-[11px] text-[var(--muted)] sm:flex-row"><p>© 2026 Faiz Ahmad <span className="mx-2 opacity-40">/</span> Built with intention.</p><div className="flex items-center gap-5"><span className="flex items-center gap-1.5"><Terminal className="size-3"/>Next.js & a little curiosity</span><a href="#" className="quiet-link" aria-label="Back to top">Back to top<ArrowUp className="size-3"/></a></div></footer>
     </div>
-  );
+  </>;
 }
