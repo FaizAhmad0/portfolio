@@ -19,6 +19,7 @@ import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Reveal } from "@/components/reveal";
+import { ProjectCardHeight } from "@/components/project-card-height";
 import { GitHubActivity, ActivitySkeleton } from "@/components/github-activity";
 const jsonLd = {
   "@context": "https://schema.org",
@@ -82,6 +83,7 @@ export default function Home() {
           </nav>
         </header>
         <main id="main">
+          <ProjectCardHeight />
           <section aria-labelledby="hero-title" className="hero-section">
             <Reveal>
               <Hero />
@@ -138,36 +140,25 @@ export default function Home() {
                     role="article"
                     className="project-card group gap-0 py-0 shadow-none"
                   >
-                    <div className="project-preview relative overflow-hidden">
-                      <Image
-                        src={project.image}
-                        alt={project.imageAlt}
-                        width={600}
-                        height={480}
-                        className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.025]"
-                        sizes="(max-width: 640px) 90vw, 180px"
-                      />
+                    <div className="project-preview">
+                        <Image
+                          src={project.image}
+                          alt={project.imageAlt}
+                          fill
+                          className="project-screen"
+                          sizes="(max-width: 640px) 90vw, 180px"
+                        />
                     </div>
-                    <div className="p-3.5 sm:p-4">
-                      <h3 className="text-base font-semibold tracking-[-0.025em]">
-                        {project.title}
+                    <div className="project-content">
+                      <h3 className="project-title">
+                        <span>{project.title}</span>
+                        <span className="project-title-divider" aria-hidden="true">·</span>
+                        <span className="project-category">{project.category}</span>
                       </h3>
-                      <p className="mt-1 text-[11px] font-medium leading-4 text-[var(--accent)]">
-                        {project.category}
-                      </p>
-                      <p className="mt-2 text-xs leading-5 text-[var(--muted)]">
+                      <p className="project-summary text-[var(--muted)]">
                         {project.summary}
                       </p>
-                      <details className="group/details mt-1.5">
-                        <summary className="flex w-fit cursor-pointer list-none items-center gap-1 text-[11px] text-[var(--muted)] hover:text-[var(--foreground)]">
-                          Project details
-                          <ChevronDown className="size-3 transition-transform group-open/details:rotate-180" />
-                        </summary>
-                        <p className="mt-2 text-xs leading-5 text-[var(--muted)]">
-                          {project.description}
-                        </p>
-                      </details>
-                      <div className="mt-2 flex flex-wrap gap-1.5">
+                      <div className="project-stack flex flex-wrap">
                         {project.stack.map((tech) => (
                           <Badge
                             key={tech}
@@ -178,7 +169,7 @@ export default function Home() {
                           </Badge>
                         ))}
                       </div>
-                      {(project.live || project.github) && <div className="mt-3 flex gap-2">
+                      {(project.live || project.github) && <div className="project-actions mt-2 flex gap-2">
                         {project.live ? (
                           <Button asChild size="sm" variant="outline">
                             <a
