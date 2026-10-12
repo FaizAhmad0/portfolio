@@ -46,7 +46,6 @@ export const projects = [
       "Tailwind CSS",
       "JWT",
       "OpenAI",
-      "LangChain",
       "Redis",
       "Cloudinary",
     ],
@@ -84,21 +83,14 @@ export const projects = [
 ];
 export const experience = [
   {
-    title: "Your most recent role",
-    subtitle: "Organization · Role details to be added",
-    date: "Dates pending",
+    title: "Full Stack Developer & AI Builder",
+    subtitle: "Saumic Craft · Full Stack Development",
+    date: "Jul 2024 – Present",
     icon: "work",
     description:
-      "Add your organization, role, dates, responsibilities, and verified impact here. No employment history has been supplied yet.",
+      "Developed and maintained business applications using React, Node.js, Express.js, and MongoDB. Built secure REST APIs, role-based access control, wallet systems, payment gateway integrations, and order management workflows. Created reporting dashboards and automated email reports, and managed production deployments with Nginx and PM2.",
   },
-  {
-    title: "Open-source contributions",
-    subtitle: "Projects and contributions to be added",
-    date: "Details pending",
-    icon: "code",
-    description:
-      "Add the repositories you contributed to, the changes you made, and links to merged pull requests.",
-  },
+
   {
     title: "Independent work",
     subtitle: "Client work or personal projects to be added",

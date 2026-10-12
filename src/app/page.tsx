@@ -141,19 +141,26 @@ export default function Home() {
                     className="project-card group gap-0 py-0 shadow-none"
                   >
                     <div className="project-preview">
-                        <Image
-                          src={project.image}
-                          alt={project.imageAlt}
-                          fill
-                          className="project-screen"
-                          sizes="(max-width: 640px) 90vw, 180px"
-                        />
+                      <Image
+                        src={project.image}
+                        alt={project.imageAlt}
+                        fill
+                        className="project-screen"
+                        sizes="(max-width: 640px) 90vw, 180px"
+                      />
                     </div>
                     <div className="project-content">
                       <h3 className="project-title">
                         <span>{project.title}</span>
-                        <span className="project-title-divider" aria-hidden="true">·</span>
-                        <span className="project-category">{project.category}</span>
+                        <span
+                          className="project-title-divider"
+                          aria-hidden="true"
+                        >
+                          ·
+                        </span>
+                        <span className="project-category">
+                          {project.category}
+                        </span>
                       </h3>
                       <p className="project-summary text-[var(--muted)]">
                         {project.summary}
@@ -169,54 +176,61 @@ export default function Home() {
                           </Badge>
                         ))}
                       </div>
-                      {(project.live || project.github) && <div className="project-actions mt-2 flex gap-2">
-                        {project.live ? (
-                          <Button asChild size="sm" variant="outline">
-                            <a
-                              href={project.live}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              aria-label={`Live demo of ${project.title}`}
+                      {(project.live || project.github) && (
+                        <div className="project-actions mt-2 flex gap-2">
+                          {project.live ? (
+                            <Button
+                              asChild
+                              size="xs"
+                              variant="outline"
+                              className=""
+                            >
+                              <a
+                                href={project.live}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={`Live demo of ${project.title}`}
+                              >
+                                Live Demo
+                                <ArrowUpRight />
+                              </a>
+                            </Button>
+                          ) : (
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              disabled
+                              title="Live demo URL to be added"
                             >
                               Live Demo
                               <ArrowUpRight />
-                            </a>
-                          </Button>
-                        ) : (
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            disabled
-                            title="Live demo URL to be added"
-                          >
-                            Live Demo
-                            <ArrowUpRight />
-                          </Button>
-                        )}
-                        {project.github ? (
-                          <Button asChild size="sm" variant="ghost">
-                            <a
-                              href={project.github}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              aria-label={`Source code for ${project.title}`}
+                            </Button>
+                          )}
+                          {project.github ? (
+                            <Button asChild size="sm" variant="ghost">
+                              <a
+                                href={project.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={`Source code for ${project.title}`}
+                              >
+                                <Github />
+                                GitHub
+                              </a>
+                            </Button>
+                          ) : (
+                            <Button
+                              size="sm"
+                              variant="ghost"
+                              disabled
+                              title="Repository URL to be added"
                             >
                               <Github />
                               GitHub
-                            </a>
-                          </Button>
-                        ) : (
-                          <Button
-                            size="sm"
-                            variant="ghost"
-                            disabled
-                            title="Repository URL to be added"
-                          >
-                            <Github />
-                            GitHub
-                          </Button>
-                        )}
-                      </div>}
+                            </Button>
+                          )}
+                        </div>
+                      )}
                     </div>
                   </Card>
                 </Reveal>
