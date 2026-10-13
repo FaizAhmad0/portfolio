@@ -17,6 +17,7 @@ import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { NavLogo } from "@/components/nav-logo";
 import { Reveal } from "@/components/reveal";
 import { ExperienceRow } from "@/components/experience-row";
 import { ProjectCardHeight } from "@/components/project-card-height";
@@ -62,13 +63,7 @@ export default function Home() {
               aria-label="Faiz Ahmad home"
               className="flex items-center gap-2.5 text-sm font-semibold tracking-tight"
             >
-              <Image
-                src="/logo.png"
-                alt=""
-                width={32}
-                height={32}
-                className="nav-logo rounded-sm object-contain"
-              />
+              <NavLogo />
             </a>
             <div className="flex items-center gap-3 text-[11px] sm:gap-5 sm:text-xs">
               <a className="nav-link" href="#projects">

@@ -129,8 +129,9 @@
   opacity: 0.75;
 }
 .nav-logo {
-  height: 32px;
-  width: 32px;
+  height: auto;
+  width: 112px;
+  flex-shrink: 0;
 }
 [data-slot="button"][data-size="sm"] {
   font-size: 11px;
@@ -510,8 +511,8 @@ a.social-link:hover {
 }
 @media (max-width: 380px) {
   .nav-logo {
-    width: 24px;
-    height: 24px;
+    width: 92px;
+    height: auto;
   }
   nav > div {
     gap: 6px;
