@@ -4,7 +4,6 @@ import {
   Code2,
   BriefcaseBusiness,
   Sparkles,
-  ChevronDown,
   Terminal,
   Layers3,
   ArrowUp,
@@ -19,6 +18,7 @@ import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Reveal } from "@/components/reveal";
+import { ExperienceRow } from "@/components/experience-row";
 import { ProjectCardHeight } from "@/components/project-card-height";
 import { GitHubActivity, ActivitySkeleton } from "@/components/github-activity";
 const jsonLd = {
@@ -250,10 +250,9 @@ export default function Home() {
                   <span className="text-[var(--accent)]">.</span>
                 </h2>
               </div>
-              <Card className="gap-0 overflow-hidden py-0 shadow-none">
+              <Card className="experience-card gap-0 overflow-hidden py-0 shadow-none">
                 {experience.map((item, index) => (
-                  <details key={item.title} className="experience-row group">
-                    <summary className="flex cursor-pointer list-none items-center gap-3 p-3.5">
+                  <ExperienceRow key={item.title} description={item.description}>
                       <span
                         className={`experience-icon ${index === 0 ? "accent-icon" : ""}`}
                       >
@@ -279,12 +278,7 @@ export default function Home() {
                           Placeholder
                         </span>
                       </span>
-                      <ChevronDown className="size-4 shrink-0 text-[var(--muted)] transition-transform group-open:rotate-180" />
-                    </summary>
-                    <p className="pb-3 pl-[62px] pr-5 text-xs leading-6 text-[var(--muted)]">
-                      {item.description}
-                    </p>
-                  </details>
+                  </ExperienceRow>
                 ))}
               </Card>
               <p className="mt-3 text-[10px] text-[var(--muted)]">

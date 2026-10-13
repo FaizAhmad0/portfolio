@@ -35,7 +35,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} ${handwriting.variable} h-full antialiased`}
     >
-      <body className="min-h-full font-sans">
+      {/* Browser extensions may add body attributes before React hydrates. */}
+      <body className="min-h-full font-sans" suppressHydrationWarning>
         <script dangerouslySetInnerHTML={{ __html: `try{document.documentElement.dataset.theme=localStorage.getItem('theme')==='light'?'light':'dark'}catch{}` }}/>
         {children}
       </body>
