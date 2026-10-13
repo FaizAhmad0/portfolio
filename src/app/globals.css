@@ -407,8 +407,7 @@ a.social-link:hover {
   background: var(--surface);
   transition: border-color 200ms;
 }
-.experience-card:hover,
-.experience-card:focus-within {
+.experience-card:hover {
   border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
 }
 .experience-row + .experience-row {
