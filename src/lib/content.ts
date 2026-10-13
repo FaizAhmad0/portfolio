@@ -1,4 +1,5 @@
 import classSathiImage from "../../public/classsathi.png";
+import walletImage from ".././../public/wallet.png";
 
 // Edit here. Null links stay visibly unavailable. Replace previews with actual screenshots.
 export const profile = {
@@ -76,7 +77,7 @@ export const projects = [
       "PM2",
       "VPS",
     ],
-    image: classSathiImage,
+    image: walletImage,
     imageAlt:
       "SaumicWallet dashboard for wallet transactions, payments, and order management",
     live: "https://a.digifycreation.in/" as string | null, // Add your live project URL
