@@ -11,7 +11,7 @@ export const profile = {
   username: "FaizAhmad0",
   avatar: "/faiz-avatar.jpg",
   email: null as string | null,
-  resume: null as string | null, // Put a PDF in public/, then set /Faiz-Ahmad-Resume.pdf
+  resume: "/faiz-full-stack-developer.pdf" as string | null,
   linkedin: "https://www.linkedin.com/in/mdfaizahmad/" as string | null,
   x: "https://x.com/mdfaiza20470687" as string | null,
   youtube: null as string | null,
