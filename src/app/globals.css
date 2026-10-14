@@ -447,9 +447,13 @@ a.social-link:hover {
   border-color: color-mix(in srgb, var(--accent) 15%, var(--border));
 }
 .contact-card {
-  background:
-    radial-gradient(ellipse at 100% 100%, var(--accent-soft), transparent 60%),
-    var(--surface);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  transition: border-color 200ms, background-color 200ms ease;
+}
+.contact-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+  background: var(--surface-hover);
 }
 .activity-card {
   min-height: 148px;

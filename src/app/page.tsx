@@ -319,6 +319,7 @@ export default function Home() {
                       target={profile.email ? undefined : "_blank"}
                       rel={profile.email ? undefined : "noopener noreferrer"}
                     >
+                      {!profile.email && <Github />}
                       {profile.email ? "Say hello" : "Find me on GitHub"}
                       <ArrowUpRight />
                     </a>
