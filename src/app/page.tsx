@@ -8,7 +8,13 @@ import {
   Layers3,
   ArrowUp,
 } from "lucide-react";
-import { Github } from "@/components/brand-icons";
+import {
+  Github,
+  Instagram,
+  Linkedin,
+  X,
+  Youtube,
+} from "@/components/brand-icons";
 import { Suspense } from "react";
 import { profile, projects, experience } from "@/lib/content";
 import { Button } from "@/components/ui/button";
@@ -120,7 +126,7 @@ export default function Home() {
                 <div>
                   <p className="eyebrow mb-2">IDEAS INTO INTERFACES</p>
                   <h2 id="projects-title" className="section-title">
-                    Selected projects
+                    Featured projects
                     <span className="text-[var(--accent)]">.</span>
                   </h2>
                 </div>
@@ -248,32 +254,35 @@ export default function Home() {
               </div>
               <Card className="experience-card gap-0 overflow-hidden py-0 shadow-none">
                 {experience.map((item, index) => (
-                  <ExperienceRow key={item.title} description={item.description}>
-                      <span
-                        className={`experience-icon ${index === 0 ? "accent-icon" : ""}`}
-                      >
-                        {item.icon === "work" ? (
-                          <BriefcaseBusiness />
-                        ) : item.icon === "code" ? (
-                          <Code2 />
-                        ) : (
-                          <Layers3 />
-                        )}
+                  <ExperienceRow
+                    key={item.title}
+                    description={item.description}
+                  >
+                    <span
+                      className={`experience-icon ${index === 0 ? "accent-icon" : ""}`}
+                    >
+                      {item.icon === "work" ? (
+                        <BriefcaseBusiness />
+                      ) : item.icon === "code" ? (
+                        <Code2 />
+                      ) : (
+                        <Layers3 />
+                      )}
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block text-sm font-medium">
+                        {item.title}
                       </span>
-                      <span className="min-w-0 flex-1">
-                        <span className="block text-sm font-medium">
-                          {item.title}
-                        </span>
-                        <span className="mt-1 block text-xs text-[var(--muted)]">
-                          {item.subtitle}
-                        </span>
+                      <span className="mt-1 block text-xs text-[var(--muted)]">
+                        {item.subtitle}
                       </span>
-                      <span className="hidden text-right text-[10px] text-[var(--muted)] sm:block">
-                        {item.date}
-                        <span className="mt-1 block font-mono text-[9px] uppercase tracking-wider">
-                          Placeholder
-                        </span>
+                    </span>
+                    <span className="hidden text-right text-[10px] text-[var(--muted)] sm:block">
+                      {item.date}
+                      <span className="mt-1 block font-mono text-[9px] uppercase tracking-wider">
+                        Placeholder
                       </span>
+                    </span>
                   </ExperienceRow>
                 ))}
               </Card>
@@ -290,6 +299,105 @@ export default function Home() {
           >
             <Reveal>
               <SkillsCard />
+            </Reveal>
+          </section>
+          <section
+            id="about"
+            aria-labelledby="about-title"
+            className="section-space scroll-mt-8"
+          >
+            <Reveal>
+              <div className="mb-4">
+                <p className="eyebrow mb-2">THE PERSON BEHIND THE CODE</p>
+                <h2 id="about-title" className="section-title">
+                  About me<span className="text-[var(--accent)]">.</span>
+                </h2>
+              </div>
+              <Card className="contact-card gap-0 overflow-hidden px-5 py-5 shadow-none sm:px-6 sm:py-6">
+                <div className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_minmax(0,210px)]">
+                  <div>
+                    <p className="text-base font-semibold tracking-tight">
+                      Hi, I&apos;m {profile.name}.
+                    </p>
+                    <p className="mt-3 text-xs leading-6 text-[var(--muted)]">
+                      I&apos;m a MERN full stack developer and AI builder who
+                      enjoys turning complex ideas into simple, useful products.
+                      From thoughtful interfaces to the APIs behind them, I
+                      build for the people who use them.
+                    </p>
+                    <p className="mt-3 text-xs leading-6 text-[var(--muted)]">
+                      My work spans coaching management, marketplace tools, and
+                      payment workflows. I work with React, Next.js, Node.js,
+                      and MongoDB, and explore how AI can make everyday tasks
+                      easier. Curiosity keeps me learning; attention to detail
+                      shapes what I ship.
+                    </p>
+                  </div>
+                  <div className="min-w-0 flex flex-col justify-center gap-4 border-t border-[var(--border)] pt-5 sm:border-t-0 sm:border-l sm:pt-0 sm:pl-5">
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="experience-icon accent-icon">
+                          <Code2 aria-hidden="true" />
+                        </span>
+                        <p className="text-xs font-medium">Built end to end</p>
+                      </div>
+                      <p className="mt-1 text-[11px] leading-5 text-[var(--muted)]">
+                        Thoughtful interfaces. Reliable APIs.
+                      </p>
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="experience-icon accent-icon">
+                          <Sparkles aria-hidden="true" />
+                        </span>
+                        <p className="text-xs font-medium">Always exploring</p>
+                      </div>
+                      <p className="mt-1 text-[11px] leading-5 text-[var(--muted)]">
+                        Practical ideas, powered by AI.
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-2 border-t border-[var(--border)] pt-4">
+                    {[
+                      { label: "GitHub", href: profile.github, icon: Github },
+                      {
+                        label: "LinkedIn",
+                        href: profile.linkedin,
+                        icon: Linkedin,
+                      },
+                      { label: "X", href: profile.x, icon: X },
+                      {
+                        label: "YouTube",
+                        href: profile.youtube,
+                        icon: Youtube,
+                      },
+                      {
+                        label: "Instagram",
+                        href: profile.instagram,
+                        icon: Instagram,
+                      },
+                    ].map(({ label, href, icon: Icon }) =>
+                      href ? (
+                        <a
+                          key={label}
+                          href={href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="social-link"
+                          aria-label={`${profile.name} on ${label}`}
+                          title={label}
+                        >
+                          <Icon className="size-4" />
+                        </a>
+                      ) : (
+                        <span key={label} className="social-link social-pending" title={`${label} link to be added`} aria-label={`${label} link not yet provided`}>
+                          <Icon className="size-4" />
+                        </span>
+                      ),
+                    )}
+                    </div>
+                  </div>
+                </div>
+              </Card>
             </Reveal>
           </section>
           <section
