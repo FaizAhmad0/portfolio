@@ -58,6 +58,32 @@ export const projects = [
   },
   {
     id: "02",
+    title: "StarSellingz",
+    category: "Product Catalog & Marketplace Listing Export Platform",
+    summary:
+      "Product discovery platform that lets sellers browse, select, and export products into customizable Excel templates for Amazon, Flipkart, Meesho, and Etsy.",
+    description:
+      "Full stack product catalog platform built to simplify marketplace listing preparation. Users can search products, filter by category, explore color and size variants, and select products for export. Generates Excel files tailored to Amazon, Flipkart, Meesho, Etsy, and custom listing templates, mapping product details, SKUs, descriptions, prices, stock, and image URLs into the required columns. Includes an admin dashboard for catalog management and bulk product uploads, helping sellers reduce manual data entry and prepare listings across multiple marketplaces.",
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "TanStack Query",
+      "Zustand",
+      "XLSX",
+    ],
+    image: starsellingImage,
+    imageAlt:
+      "StarSellingz product catalog with category filters, product selection, and Excel exports for Amazon, Flipkart, Meesho, and Etsy",
+    live: "https://test.starsellingz.com/" as string | null, // Add your live project URL
+    github: null as string | null,
+  },
+  {
+    id: "03",
     title: "SaumicWallet",
     category: "Wallet, Order & Payment Management Platform",
     summary:
@@ -82,32 +108,6 @@ export const projects = [
     imageAlt:
       "SaumicWallet dashboard for wallet transactions, payments, and order management",
     live: "https://a.digifycreation.in/" as string | null, // Add your live project URL
-    github: null as string | null,
-  },
-  {
-    id: "03",
-    title: "StarSellingz",
-    category: "Product Catalog & Marketplace Listing Export Platform",
-    summary:
-      "Product discovery platform that lets sellers browse, select, and export products into customizable Excel templates for Amazon, Flipkart, Meesho, and Etsy.",
-    description:
-      "Full stack product catalog platform built to simplify marketplace listing preparation. Users can search products, filter by category, explore color and size variants, and select products for export. Generates Excel files tailored to Amazon, Flipkart, Meesho, Etsy, and custom listing templates, mapping product details, SKUs, descriptions, prices, stock, and image URLs into the required columns. Includes an admin dashboard for catalog management and bulk product uploads, helping sellers reduce manual data entry and prepare listings across multiple marketplaces.",
-    stack: [
-      "Next.js",
-      "TypeScript",
-      "Node.js",
-      "Express.js",
-      "MongoDB",
-      "Tailwind CSS",
-      "shadcn/ui",
-      "TanStack Query",
-      "Zustand",
-      "XLSX",
-    ],
-    image: starsellingImage,
-    imageAlt:
-      "StarSellingz product catalog with category filters, product selection, and Excel exports for Amazon, Flipkart, Meesho, and Etsy",
-    live: "https://test.starsellingz.com/" as string | null, // Add your live project URL
     github: null as string | null,
   },
 ];
