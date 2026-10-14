@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 export function ProjectCardHeight() {
   useEffect(() => {
-    const contactCard = document.querySelector<HTMLElement>(".contact-card");
+    const contactCard = document.querySelector<HTMLElement>("#contact .contact-card");
     const projectCards = document.querySelectorAll<HTMLElement>(".project-card");
     if (!contactCard) return;
 

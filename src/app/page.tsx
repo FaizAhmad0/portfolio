@@ -20,6 +20,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { NavLogo } from "@/components/nav-logo";
 import { Reveal } from "@/components/reveal";
 import { ExperienceRow } from "@/components/experience-row";
+import { SkillsCard } from "@/components/skills-card";
 import { ProjectCardHeight } from "@/components/project-card-height";
 import { GitHubActivity, ActivitySkeleton } from "@/components/github-activity";
 const jsonLd = {
@@ -280,6 +281,15 @@ export default function Home() {
                 Experience details are placeholders awaiting verified
                 information.
               </p>
+            </Reveal>
+          </section>
+          <section
+            id="skills"
+            aria-labelledby="skills-title"
+            className="section-space scroll-mt-8"
+          >
+            <Reveal>
+              <SkillsCard />
             </Reveal>
           </section>
           <section

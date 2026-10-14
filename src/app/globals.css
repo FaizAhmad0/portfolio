@@ -449,11 +449,78 @@ a.social-link:hover {
 .contact-card {
   border: 1px solid var(--border);
   background: var(--surface);
-  transition: border-color 200ms, background-color 200ms ease;
+  transition:
+    border-color 200ms,
+    background-color 200ms ease;
 }
 .contact-card:hover {
   border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
   background: var(--surface-hover);
+}
+.skills-marquee {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 4%,
+    black 96%,
+    transparent
+  );
+}
+.skills-track {
+  display: flex;
+  width: max-content;
+  animation: skills-scroll 35s linear infinite;
+}
+.skills-track-reverse {
+  animation-direction: reverse;
+}
+.skills-group {
+  display: flex;
+  gap: 10px;
+  padding-right: 10px;
+}
+.skills-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--background);
+}
+.skills-monochrome {
+  filter: invert(1);
+}
+:root[data-theme="light"] .skills-monochrome {
+  filter: none;
+}
+:root[data-theme="light"] .skills-light-logo {
+  filter: invert(1);
+}
+@keyframes skills-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skills-track {
+    animation: none;
+    width: auto;
+  }
+  .skills-group {
+    flex-wrap: wrap;
+  }
+  .skills-group[aria-hidden="true"] {
+    display: none;
+  }
+  .skills-marquee {
+    mask-image: none;
+  }
 }
 .activity-card {
   min-height: 148px;
