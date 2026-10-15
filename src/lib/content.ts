@@ -5,7 +5,7 @@ import starsellingImage from "../../public/star-sellingz.png";
 // Edit here. Null links stay visibly unavailable. Replace previews with actual screenshots.
 export const profile = {
   name: "Faiz Ahmad",
-  role: "MERN Full Stack Developer & AI Builder",
+  role: "Full Stack & AI Engineer",
   url: "https://www.faizahmad.in",
   github: "https://github.com/FaizAhmad0",
   username: "FaizAhmad0",
@@ -17,7 +17,7 @@ export const profile = {
   youtube: null as string | null,
   instagram: null as string | null,
   heroLines: [
-    "I’m a MERN full stack developer, building thoughtful web experiences.",
+    "I’m a full stack developer, building thoughtful web experiences.",
     "Exploring AI and turning complex ideas into simple, useful products.",
   ],
   introduction:
@@ -113,20 +113,21 @@ export const projects = [
 ];
 export const experience = [
   {
-    title: "Full Stack Developer & AI Builder",
+    title: "Full Stack Software Engineer & AI Developer",
     subtitle: "Saumic Craft · Full Stack Development",
     date: "Jul 2024 – Present",
     icon: "work",
+
     description:
-      "Developed and maintained full stack business applications using Next.js, React, TypeScript, Tailwind CSS, Node.js, Express.js, and MongoDB. Built secure REST APIs with JWT authentication and role-based access control, wallet systems, payment gateway integrations, order management workflows, and reporting dashboards. Used Redis and BullMQ for background jobs and automated processing. Managed production deployments on AWS EC2 and VPS using Docker, Nginx, PM2, and GitHub Actions for CI/CD.",
+      "Designing and developing scalable full-stack business applications, CRM platforms, and enterprise management systems using React.js, Next.js, TypeScript, JavaScript, Tailwind CSS, Node.js, and Express.js. Building RESTful APIs, JWT authentication, RBAC, payment gateway integrations, wallet systems, order management workflows, and analytics dashboards. Working with MongoDB, PostgreSQL, MySQL, Prisma ORM, Redis, and BullMQ for database management, caching, background jobs, and workflow automation. Implementing automated reporting, secure backend architectures, and performance optimizations. Deploying and maintaining production applications using AWS EC2, VPS, Docker, Nginx, PM2, Git, GitHub Actions, and CI/CD pipelines.",
   },
 
   {
-    title: "Independent work",
-    subtitle: "Client work or personal projects to be added",
-    date: "Details pending",
-    icon: "build",
+    title: "Full Stack Developer Intern",
+    subtitle: "Saumic Craft · MERN Stack Development",
+    date: "Jan 2024 – Jun 2024",
+    icon: "work",
     description:
-      "Add verified freelance or independent work, including your role and the outcomes you can substantiate.",
+      "Contributed to the development and maintenance of full-stack web applications using React.js, JavaScript, Node.js, Express.js, and MongoDB. Built responsive user interfaces, integrated RESTful APIs, implemented CRUD operations, and assisted with backend development and database management. Collaborated on debugging, testing, authentication workflows, and application performance improvements while gaining hands-on experience with Git, GitHub, and real-world software development practices.",
   },
 ];

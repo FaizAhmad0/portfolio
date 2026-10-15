@@ -320,17 +320,17 @@ export default function Home() {
                       Hi, I&apos;m {profile.name}.
                     </p>
                     <p className="mt-3 text-xs leading-6 text-[var(--muted)]">
-                      I&apos;m a MERN full stack developer and AI builder who
-                      enjoys turning complex ideas into simple, useful products.
-                      From thoughtful interfaces to the APIs behind them, I
-                      build for the people who use them.
+                      I&apos;m a Full Stack Software Engineer and AI Builder
+                      passionate about developing scalable web applications,
+                      intuitive user interfaces, and reliable backend systems
+                      that solve real-world problems.
                     </p>
                     <p className="mt-3 text-xs leading-6 text-[var(--muted)]">
-                      My work spans coaching management, marketplace tools, and
-                      payment workflows. I work with React, Next.js, Node.js,
-                      and MongoDB, and explore how AI can make everyday tasks
-                      easier. Curiosity keeps me learning; attention to detail
-                      shapes what I ship.
+                      I build SaaS platforms, payment integrations, and
+                      intelligent applications using React, Next.js, TypeScript,
+                      Node.js, Express.js, MongoDB, PostgreSQL, MySQL, Prisma,
+                      and Redis. I also work with AWS, Docker, Nginx, and CI/CD,
+                      while exploring Generative AI, LLMs, and automation.
                     </p>
                   </div>
                   <div className="min-w-0 flex flex-col justify-center gap-4 border-t border-[var(--border)] pt-5 sm:border-t-0 sm:border-l sm:pt-0 sm:pl-5">
@@ -357,43 +357,48 @@ export default function Home() {
                       </p>
                     </div>
                     <div className="flex items-center gap-2 border-t border-[var(--border)] pt-4">
-                    {[
-                      { label: "GitHub", href: profile.github, icon: Github },
-                      {
-                        label: "LinkedIn",
-                        href: profile.linkedin,
-                        icon: Linkedin,
-                      },
-                      { label: "X", href: profile.x, icon: X },
-                      {
-                        label: "YouTube",
-                        href: profile.youtube,
-                        icon: Youtube,
-                      },
-                      {
-                        label: "Instagram",
-                        href: profile.instagram,
-                        icon: Instagram,
-                      },
-                    ].map(({ label, href, icon: Icon }) =>
-                      href ? (
-                        <a
-                          key={label}
-                          href={href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="social-link"
-                          aria-label={`${profile.name} on ${label}`}
-                          title={label}
-                        >
-                          <Icon className="size-4" />
-                        </a>
-                      ) : (
-                        <span key={label} className="social-link social-pending" title={`${label} link to be added`} aria-label={`${label} link not yet provided`}>
-                          <Icon className="size-4" />
-                        </span>
-                      ),
-                    )}
+                      {[
+                        { label: "GitHub", href: profile.github, icon: Github },
+                        {
+                          label: "LinkedIn",
+                          href: profile.linkedin,
+                          icon: Linkedin,
+                        },
+                        { label: "X", href: profile.x, icon: X },
+                        {
+                          label: "YouTube",
+                          href: profile.youtube,
+                          icon: Youtube,
+                        },
+                        {
+                          label: "Instagram",
+                          href: profile.instagram,
+                          icon: Instagram,
+                        },
+                      ].map(({ label, href, icon: Icon }) =>
+                        href ? (
+                          <a
+                            key={label}
+                            href={href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="social-link"
+                            aria-label={`${profile.name} on ${label}`}
+                            title={label}
+                          >
+                            <Icon className="size-4" />
+                          </a>
+                        ) : (
+                          <span
+                            key={label}
+                            className="social-link social-pending"
+                            title={`${label} link to be added`}
+                            aria-label={`${label} link not yet provided`}
+                          >
+                            <Icon className="size-4" />
+                          </span>
+                        ),
+                      )}
                     </div>
                   </div>
                 </div>
