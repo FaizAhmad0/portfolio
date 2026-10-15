@@ -140,15 +140,15 @@ export default function Home() {
                 <Reveal key={project.id} delay={index * 0.06}>
                   <Card
                     role="article"
-                    className="project-card group gap-0 py-0 shadow-none"
+                    className="project-card group grid-cols-[35%_minmax(0,1fr)] gap-0 py-0 shadow-none sm:grid-cols-[22%_minmax(0,1fr)]"
                   >
-                    <div className="project-preview">
+                    <div className="relative m-0 h-full min-h-0 overflow-hidden border-r border-[var(--border)] bg-[#f7f4ed] p-0">
                       <Image
                         src={project.image}
                         alt={project.imageAlt}
                         fill
-                        className="project-screen"
-                        sizes="(max-width: 640px) 90vw, 180px"
+                        className="m-0 block object-fill p-0"
+                        sizes="(max-width: 639px) 35vw, 180px"
                       />
                     </div>
                     <div className="project-content">
@@ -167,7 +167,7 @@ export default function Home() {
                       <p className="project-summary text-[var(--muted)]">
                         {project.summary}
                       </p>
-                      <div className="project-stack flex flex-wrap">
+                      <div className="project-stack flex flex-wrap hidden md:block">
                         {project.stack.map((tech) => (
                           <Badge
                             key={tech}
